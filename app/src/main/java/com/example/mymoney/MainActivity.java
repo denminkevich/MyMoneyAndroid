@@ -1,12 +1,20 @@
 package com.example.mymoney;
 
+import android.app.Fragment;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
+import com.example.mymoney.ui.home.HomeFragment;
+import com.example.mymoney.ui.incomes.IncomesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.FragmentTransaction;
+import android.widget.ImageButton;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
     }
 
+//    }
+
 }
+

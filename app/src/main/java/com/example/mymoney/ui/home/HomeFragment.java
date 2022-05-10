@@ -1,6 +1,8 @@
 package com.example.mymoney.ui.home;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import android.widget.ImageButton;
 
+import com.example.mymoney.MainActivity;
 import com.example.mymoney.R;
+import com.example.mymoney.ui.incomes.IncomesFragment;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
-
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,6 +43,19 @@ public class HomeFragment extends Fragment {
         monthText.setText(month);
         yearText.setText(Integer.toString(year));
 
+        ImageButton changeBtn = (ImageButton) root.findViewById(R.id.changeBtn);
+        changeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IncomesFragment nextFrag = new IncomesFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -45,4 +64,5 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
 }

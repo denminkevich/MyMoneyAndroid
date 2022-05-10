@@ -15,4 +15,8 @@
     <string name="Sport">Спорт</string>
     <string name="Hobbies">Досуг</string>
     <string name="AddCategory">Добавить категорию</string>
+    <string name="Salery">Зарплата</string>
+    <string name="Freelance">Фриланс</string>
+    <string name="Sells">Продажи</string>
+    <string name="Rents">Аренда</string>
 </resources>
