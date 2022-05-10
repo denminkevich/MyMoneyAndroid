@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">MyMoney</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Главная</string>
+    <string name="title_history">История</string>
+    <string name="title_stat">Статистика</string>
+    <string name="title_cards">Кошельки</string>
+    <string name="Expenses">Расходы</string>
+    <string name="Incomes">Доходы</string>
+    <string name="health">Здоровье</string>
+    <string name="goods">Покупки</string>
+    <string name="Cafes">Рестораны</string>
+    <string name="Eat">Еда</string>
+    <string name="car">Машина</string>
+    <string name="House">Дом</string>
+    <string name="Sport">Спорт</string>
+    <string name="Hobbies">Досуг</string>
+    <string name="AddCategory">Добавить категорию</string>
 </resources>

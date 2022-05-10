@@ -8,19 +8,23 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.mymoney.ui.home.HomeFragment"
+        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.example.mymoney.ui.dashboard.DashboardFragment"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history"
+        android:label="@string/title_history" />/>
 
     <fragment
         android:id="@+id/navigation_calendar"
         android:name="com.example.mymoney.ui.notifications.NotificationsFragment"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_calendar"
+        android:label="@string/title_stat" />/>
     <fragment
         android:id="@+id/navigation_cards"
         android:name="com.example.mymoney.ui.cards.CardFragment"
-        tools:layout="@layout/fragment_cards" />
+        tools:layout="@layout/fragment_cards"
+        android:label="@string/title_cards" />/>
 </navigation>

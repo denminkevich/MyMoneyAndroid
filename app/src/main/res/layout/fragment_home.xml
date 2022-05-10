@@ -4,19 +4,401 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/mainBlue">
 
     <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:textAlignment="center"
+        android:fontFamily="@font/open_sans"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/open_sans"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/changeExp"
+        android:clickable="false"
+        android:layout_width="0dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/button_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/year"
+        android:text="@string/Expenses"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/lightBlue"
+        android:paddingBottom="167dp"
+        android:textSize="16sp"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/expenses"
+        android:text="1358 р"
+        android:textColor="@color/purple_200"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/open_sans"
+        android:textSize="45sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp"/>
+
+    <ImageButton
+        android:id="@+id/changeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_change"
+        android:layout_marginTop="165dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp"
+        ></ImageButton>
+
+    <TextView
+        android:id="@+id/smallIncomes"
+        android:text="2500 р"
+        android:textColor="@color/lightBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/open_sans"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp"
+        android:alpha="0.7"/>
+
+    <TextView
+        android:id="@+id/incomesTitle"
+        android:text="@string/Incomes"
+        android:textColor="@color/lightBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="235dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/open_sans"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp"
+        android:alpha="0.7"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:columnCount="4"
+        android:layout_marginTop="300dp"
+        android:alignmentMode="alignMargins">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_medicon"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/health"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center" >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_goods"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/goods"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center" >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_cafes"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/Cafes"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center" >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_eat"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/Eat"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_car"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/car"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_house"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/House"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_sport"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/Sport"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_hobbies"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/Hobbies"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="130 р"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_add"
+                android:textAlignment="center"
+                ></ImageButton>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:text="@string/AddCategory"
+                android:fontFamily="@font/open_sans"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textAlignment="center"
+                ></TextView>
+        </LinearLayout>
+
+    </GridLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
