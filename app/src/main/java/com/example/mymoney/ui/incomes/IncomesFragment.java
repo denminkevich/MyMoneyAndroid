@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mymoney.R;
@@ -60,6 +62,7 @@ public class IncomesFragment extends Fragment {
                 Fragment mCurrentFragment = (Fragment) fragments.get(fragments.size() - 1);
             }
         });
+
 
         return root;
     }

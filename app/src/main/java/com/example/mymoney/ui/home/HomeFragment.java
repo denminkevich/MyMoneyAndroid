@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,8 +55,22 @@ public class HomeFragment extends Fragment {
                         .addToBackStack(null)
                         .commit();
             }
+
         });
 
+        ImageView imageOfGroup = (ImageView) root.findViewById(R.id.imageOfGroup);
+        TextView textOfGroup = (TextView) root.findViewById(R.id.textOfGroup);
+        LinearLayout floatingWindow = (LinearLayout) root.findViewById(R.id.floatWindow);
+        ImageButton healthBtn = (ImageButton) root.findViewById(R.id.healthBut);
+
+        healthBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_medicon);
+                textOfGroup.setText(R.string.health);
+            }
+        });
 
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
