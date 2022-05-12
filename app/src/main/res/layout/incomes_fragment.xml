@@ -124,6 +124,7 @@
             android:gravity="center"
             >
             <ImageButton
+                android:id="@+id/salaryBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_salery"
@@ -155,6 +156,7 @@
             android:orientation="vertical"
             android:gravity="center" >
             <ImageButton
+                android:id="@+id/freelanceBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_freelance"
@@ -186,6 +188,7 @@
             android:orientation="vertical"
             android:gravity="center" >
             <ImageButton
+                android:id="@+id/sellsBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_sells"
@@ -217,6 +220,7 @@
             android:orientation="vertical"
             android:gravity="center" >
             <ImageButton
+                android:id="@+id/rentsBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_rents"
@@ -268,5 +272,78 @@
         </LinearLayout>
 
     </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/floatWindowInc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="10px"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:weightSum="7"
+        >
+        <View
+            android:id="@+id/emptyViewInc"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@color/black"
+            android:alpha="0.5"
+            android:layout_width="match_parent"></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="@color/darkBlue"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imageOfGroupInc"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_freelance"></ImageView>
+            <TextView
+                android:id="@+id/textOfGroupinc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="20sp"
+                android:text="Фриланс"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="0dp"
+            android:layout_weight="4.3"
+            android:layout_width="match_parent"
+            android:background="@color/mainBlue"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="25sp"
+                android:text="@string/Expenses"
+                android:textColor="@color/purple_200"
+                android:textAlignment="center"></TextView>
+            <EditText
+                android:id="@+id/incInput"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:hint="0 р"
+                android:paddingBottom="10dp"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/open_sans"
+                android:focusable="auto"
+                ></EditText>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

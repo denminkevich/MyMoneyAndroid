@@ -157,6 +157,7 @@
             android:orientation="vertical"
             android:gravity="center" >
             <ImageButton
+                android:id="@+id/goodsBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_goods"
@@ -188,6 +189,7 @@
             android:orientation="vertical"
             android:gravity="center" >
             <ImageButton
+                android:id="@+id/cafesBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_cafes"
@@ -219,6 +221,7 @@
             android:orientation="vertical"
             android:gravity="center" >
             <ImageButton
+                android:id="@+id/eatBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_eat"
@@ -252,6 +255,7 @@
             android:layout_marginTop="20dp"
             >
             <ImageButton
+                android:id="@+id/carBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_car"
@@ -285,6 +289,7 @@
             android:layout_marginTop="20dp"
             >
             <ImageButton
+                android:id="@+id/houseBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_house"
@@ -318,6 +323,7 @@
             android:layout_marginTop="20dp"
             >
             <ImageButton
+                android:id="@+id/sportBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_sport"
@@ -351,6 +357,7 @@
             android:layout_marginTop="20dp"
             >
             <ImageButton
+                android:id="@+id/hobbiesBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_hobbies"
@@ -384,6 +391,7 @@
             android:layout_marginTop="20dp"
             >
             <ImageButton
+                android:id="@+id/addBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_add"
@@ -413,6 +421,7 @@
         android:weightSum="7"
         >
         <View
+            android:id="@+id/emptyView"
             android:layout_height="0dp"
             android:layout_weight="2"
             android:background="@color/black"
@@ -456,17 +465,20 @@
                 android:textColor="@color/purple_200"
                 android:textAlignment="center"></TextView>
             <EditText
+                android:id="@+id/expInput"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_height="50dp"
                 android:inputType="numberDecimal"
                 android:hint="0 р"
+                android:paddingBottom="10dp"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textAlignment="center"
                 android:fontFamily="@font/open_sans"
+                android:focusable="auto"
                 ></EditText>
         </LinearLayout>
 

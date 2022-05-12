@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,6 +61,60 @@ public class IncomesFragment extends Fragment {
                         .commit();
                 List fragments = getActivity().getSupportFragmentManager().getFragments();
                 Fragment mCurrentFragment = (Fragment) fragments.get(fragments.size() - 1);
+            }
+        });
+
+        ImageView imageOfGroupInc = (ImageView) root.findViewById(R.id.imageOfGroupInc);
+        TextView textOfGroupInc = (TextView) root.findViewById(R.id.textOfGroupinc);
+        EditText editTextInc = (EditText) root.findViewById(R.id.incInput);
+        LinearLayout floatingWindowInc = (LinearLayout) root.findViewById(R.id.floatWindowInc);
+        ImageButton salaryBtn = (ImageButton) root.findViewById(R.id.salaryBtn);
+        ImageButton freelanceBtn = (ImageButton) root.findViewById(R.id.freelanceBtn);
+        ImageButton sellsBtn = (ImageButton) root.findViewById(R.id.sellsBtn);
+        ImageButton rentsBtn = (ImageButton) root.findViewById(R.id.rentsBtn);
+        View emptyViewInc = (View) root.findViewById(R.id.emptyViewInc);
+
+
+        salaryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindowInc.setVisibility(View.VISIBLE);
+                imageOfGroupInc.setImageResource(R.drawable.ic_salery);
+                textOfGroupInc.setText(R.string.Salery);
+            }
+        });
+
+        freelanceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindowInc.setVisibility(View.VISIBLE);
+                imageOfGroupInc.setImageResource(R.drawable.ic_freelance);
+                textOfGroupInc.setText(R.string.Freelance);
+            }
+        });
+
+        sellsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindowInc.setVisibility(View.VISIBLE);
+                imageOfGroupInc.setImageResource(R.drawable.ic_sells);
+                textOfGroupInc.setText(R.string.Sells);
+            }
+        });
+
+        rentsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindowInc.setVisibility(View.VISIBLE);
+                imageOfGroupInc.setImageResource(R.drawable.ic_rents);
+                textOfGroupInc.setText(R.string.Rents);
+            }
+        });
+
+        emptyViewInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindowInc.setVisibility(View.GONE);
             }
         });
 

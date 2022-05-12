@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -60,8 +61,19 @@ public class HomeFragment extends Fragment {
 
         ImageView imageOfGroup = (ImageView) root.findViewById(R.id.imageOfGroup);
         TextView textOfGroup = (TextView) root.findViewById(R.id.textOfGroup);
+        EditText editText = (EditText) root.findViewById(R.id.expInput);
         LinearLayout floatingWindow = (LinearLayout) root.findViewById(R.id.floatWindow);
         ImageButton healthBtn = (ImageButton) root.findViewById(R.id.healthBut);
+        ImageButton goodsBtn = (ImageButton) root.findViewById(R.id.goodsBtn);
+        ImageButton restBtn = (ImageButton) root.findViewById(R.id.cafesBtn);
+        ImageButton eatBtn = (ImageButton) root.findViewById(R.id.eatBtn);
+        ImageButton carBtn = (ImageButton) root.findViewById(R.id.carBtn);
+        ImageButton houseBtn = (ImageButton) root.findViewById(R.id.houseBtn);
+        ImageButton sportBtn = (ImageButton) root.findViewById(R.id.sportBtn);
+        ImageButton hobbiesBtn = (ImageButton) root.findViewById(R.id.hobbiesBtn);
+        ImageButton addBtn = (ImageButton) root.findViewById(R.id.addBtn);
+        View emptyView = (View) root.findViewById(R.id.emptyView);
+
 
         healthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +81,76 @@ public class HomeFragment extends Fragment {
                 floatingWindow.setVisibility(View.VISIBLE);
                 imageOfGroup.setImageResource(R.drawable.ic_medicon);
                 textOfGroup.setText(R.string.health);
+            }
+        });
+
+        goodsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_goods);
+                textOfGroup.setText(R.string.goods);
+            }
+        });
+
+        restBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_cafes);
+                textOfGroup.setText(R.string.Cafes);
+            }
+        });
+
+        eatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_eat);
+                textOfGroup.setText(R.string.Eat);
+            }
+        });
+
+        carBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_car);
+                textOfGroup.setText(R.string.car);
+            }
+        });
+
+        houseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_house);
+                textOfGroup.setText(R.string.House);
+            }
+        });
+
+        sportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_sport);
+                textOfGroup.setText(R.string.Sport);
+            }
+        });
+
+        hobbiesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.VISIBLE);
+                imageOfGroup.setImageResource(R.drawable.ic_hobbies);
+                textOfGroup.setText(R.string.Hobbies);
+            }
+        });
+
+        emptyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingWindow.setVisibility(View.GONE);
             }
         });
 
