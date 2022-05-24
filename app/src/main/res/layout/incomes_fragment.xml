@@ -109,169 +109,18 @@
         android:elevation="2dp"
         android:alpha="0.7"/>
 
-    <GridLayout
+    <GridView
+        android:id="@+id/IncGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
+        android:numColumns="4"
         android:columnCount="4"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="280dp"
         android:alignmentMode="alignMargins">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-            <ImageButton
-                android:id="@+id/salaryBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_salery"
-                android:textAlignment="center"
-                ></ImageButton>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="7dp"
-                android:text="@string/Salery"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:textAlignment="center"
-                ></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="130 р"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textAlignment="center"
-                ></TextView>
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center" >
-            <ImageButton
-                android:id="@+id/freelanceBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_freelance"
-                android:textAlignment="center"
-                ></ImageButton>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="7dp"
-                android:text="@string/Freelance"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:textAlignment="center"
-                ></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="130 р"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textAlignment="center"
-                ></TextView>
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center" >
-            <ImageButton
-                android:id="@+id/sellsBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_sells"
-                android:textAlignment="center"
-                ></ImageButton>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="7dp"
-                android:text="@string/Sells"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:textAlignment="center"
-                ></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="130 р"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textAlignment="center"
-                ></TextView>
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center" >
-            <ImageButton
-                android:id="@+id/rentsBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_rents"
-                android:textAlignment="center"
-                ></ImageButton>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="7dp"
-                android:text="@string/Rents"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:textAlignment="center"
-                ></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="130 р"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textAlignment="center"
-                ></TextView>
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            >
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_add"
-                android:textAlignment="center"
-                ></ImageButton>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="7dp"
-                android:text="@string/AddCategory"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:textAlignment="center"
-                ></TextView>
-        </LinearLayout>
-
-    </GridLayout>
+    </GridView>
 
     <LinearLayout
         android:id="@+id/floatWindowInc"
@@ -323,7 +172,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans"
                 android:textSize="25sp"
-                android:text="@string/Expenses"
+                android:layout_marginTop="15dp"
+                android:text="@string/Incomes"
                 android:textColor="@color/purple_200"
                 android:textAlignment="center"></TextView>
             <EditText

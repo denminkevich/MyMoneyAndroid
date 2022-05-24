@@ -20,11 +20,23 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<ExpensesGroup> expenseGroup = new ArrayList<>();
+    ArrayList<IncomesGroup> incomesGroup = new ArrayList<>();
+    public ArrayList<ExpensesGroup> getExpList(){
+        return expenseGroup;
+    }
+    public ArrayList<IncomesGroup> getIncList(){
+        return incomesGroup;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setContentView(R.layout.activity_main);

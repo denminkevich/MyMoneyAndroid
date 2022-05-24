@@ -3,6 +3,7 @@ package com.example.mymoney.ui.incomes;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,23 +13,37 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.mymoney.ExpensesGroup;
+import com.example.mymoney.GridAdapter;
+import com.example.mymoney.GridIncAdapter;
+import com.example.mymoney.IncomesGroup;
+import com.example.mymoney.MainActivity;
 import com.example.mymoney.R;
 import com.example.mymoney.ui.home.HomeFragment;
 import com.example.mymoney.ui.home.HomeViewModel;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class IncomesFragment extends Fragment {
 
     private IncomesViewModel mViewModel;
+    private Context mContext;
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
+    }
     public static IncomesFragment newInstance() {
         return new IncomesFragment();
     }
@@ -64,50 +79,33 @@ public class IncomesFragment extends Fragment {
             }
         });
 
+        ArrayList<IncomesGroup> incGroup = ((MainActivity) getActivity()).getIncList();
+        if (incGroup.size() == 0) {
+            incGroup.add(new IncomesGroup("Зарплата", 0, R.drawable.ic_salery));
+            incGroup.add(new IncomesGroup("Фриланс", 0, R.drawable.ic_freelance));
+            incGroup.add(new IncomesGroup("Продажа", 0, R.drawable.ic_sells));
+            incGroup.add(new IncomesGroup("Аренда", 0, R.drawable.ic_rents  ));
+        }
+
+        GridView myGrid = (GridView) root.findViewById(R.id.IncGrid);
         ImageView imageOfGroupInc = (ImageView) root.findViewById(R.id.imageOfGroupInc);
         TextView textOfGroupInc = (TextView) root.findViewById(R.id.textOfGroupinc);
         EditText editTextInc = (EditText) root.findViewById(R.id.incInput);
         LinearLayout floatingWindowInc = (LinearLayout) root.findViewById(R.id.floatWindowInc);
-        ImageButton salaryBtn = (ImageButton) root.findViewById(R.id.salaryBtn);
-        ImageButton freelanceBtn = (ImageButton) root.findViewById(R.id.freelanceBtn);
-        ImageButton sellsBtn = (ImageButton) root.findViewById(R.id.sellsBtn);
-        ImageButton rentsBtn = (ImageButton) root.findViewById(R.id.rentsBtn);
         View emptyViewInc = (View) root.findViewById(R.id.emptyViewInc);
 
+        myGrid.setAdapter(new GridIncAdapter(mContext, incGroup));
 
-        salaryBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                floatingWindowInc.setVisibility(View.VISIBLE);
-                imageOfGroupInc.setImageResource(R.drawable.ic_salery);
-                textOfGroupInc.setText(R.string.Salery);
-            }
-        });
+        myGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        freelanceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Object o = myGrid.getItemAtPosition(position);
+                IncomesGroup IncGroup = (IncomesGroup) o;
                 floatingWindowInc.setVisibility(View.VISIBLE);
-                imageOfGroupInc.setImageResource(R.drawable.ic_freelance);
-                textOfGroupInc.setText(R.string.Freelance);
-            }
-        });
-
-        sellsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                floatingWindowInc.setVisibility(View.VISIBLE);
-                imageOfGroupInc.setImageResource(R.drawable.ic_sells);
-                textOfGroupInc.setText(R.string.Sells);
-            }
-        });
-
-        rentsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                floatingWindowInc.setVisibility(View.VISIBLE);
-                imageOfGroupInc.setImageResource(R.drawable.ic_rents);
-                textOfGroupInc.setText(R.string.Rents);
+                imageOfGroupInc.setImageResource(IncGroup.getImg());
+                textOfGroupInc.setText(IncGroup.getName());
+                myGrid.setVisibility(View.GONE);
             }
         });
 
@@ -115,9 +113,9 @@ public class IncomesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 floatingWindowInc.setVisibility(View.GONE);
+                myGrid.setVisibility(View.VISIBLE);
             }
         });
-
 
         return root;
     }
