@@ -219,7 +219,7 @@ public class HomeFragment extends Fragment {
                 if (currentExp.contains(",")) {
                     editText.setText(currentExp);
                 } else {
-                    currentExp += ",";
+                    currentExp += ".";
                     editText.setText(currentExp);
                 }
 
@@ -243,10 +243,14 @@ public class HomeFragment extends Fragment {
                 for (int i = 0; i < expGroup.size(); i++) {
                     if (textOfGroup.getText() == expGroup.get(i).getName()) {
                         expGroup.get(i).setExpCount(expGroup.get(i).getCount() + Double.parseDouble(currentExp));
+                        break;
                     }
-                    break;
                 }
-                floatingWindow.setVisibility(view.GONE);
+                HomeFragment nextFrag = new HomeFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
