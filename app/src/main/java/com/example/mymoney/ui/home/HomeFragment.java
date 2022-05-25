@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -35,6 +36,7 @@ import java.util.Calendar;
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private Context mContext;
+    public String currentExp = "";
 
     @Override
     public void onAttach(Context context) {
@@ -104,6 +106,7 @@ public class HomeFragment extends Fragment {
                 imageOfGroup.setImageResource(ExpGroup.getImg());
                 textOfGroup.setText(ExpGroup.getName());
                 myGrid.setVisibility(View.GONE);
+                currentExp = "";
             }
         });
 
@@ -112,6 +115,138 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 floatingWindow.setVisibility(View.GONE);
                 myGrid.setVisibility(View.VISIBLE);
+                currentExp = "";
+            }
+        });
+
+        Button oneExp = (Button) root.findViewById(R.id.oneExp);
+        Button twoExp = (Button) root.findViewById(R.id.twoExp);
+        Button threeExp = (Button) root.findViewById(R.id.threeExp);
+        Button fourExp = (Button) root.findViewById(R.id.fourExp);
+        Button fiveExp = (Button) root.findViewById(R.id.fiveExp);
+        Button sixExp = (Button) root.findViewById(R.id.sixExp);
+        Button sevenExp = (Button) root.findViewById(R.id.sevenExp);
+        Button eightExp = (Button) root.findViewById(R.id.eightExp);
+        Button nineExp = (Button) root.findViewById(R.id.nineExp);
+        Button zeroExp = (Button) root.findViewById(R.id.zeroExp);
+        Button pointExp = (Button) root.findViewById(R.id.pointExp);
+        ImageButton deleteExp = (ImageButton) root.findViewById(R.id.deleteExp);
+        ImageButton checkExp = (ImageButton) root.findViewById(R.id.checkExp);
+
+        oneExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "1";
+                editText.setText(currentExp);
+            }
+        });
+
+        twoExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "2";
+                editText.setText(currentExp);
+            }
+        });
+
+        threeExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "3";
+                editText.setText(currentExp);
+            }
+        });
+
+        fourExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "4";
+                editText.setText(currentExp);
+            }
+        });
+
+        fiveExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "5";
+                editText.setText(currentExp);
+            }
+        });
+
+        sixExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "6";
+                editText.setText(currentExp);
+            }
+        });
+
+        sevenExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "7";
+                editText.setText(currentExp);
+            }
+        });
+
+        eightExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "8";
+                editText.setText(currentExp);
+            }
+        });
+
+        nineExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "9";
+                editText.setText(currentExp);
+            }
+        });
+
+        zeroExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentExp += "1";
+                editText.setText(currentExp);
+            }
+        });
+
+        pointExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentExp.contains(",")) {
+                    editText.setText(currentExp);
+                } else {
+                    currentExp += ",";
+                    editText.setText(currentExp);
+                }
+
+            }
+        });
+
+        deleteExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentExp.length() > 0) {
+                    currentExp = currentExp.replace(currentExp.substring(currentExp.length() - 1), "");
+                    editText.setText(currentExp);
+                }
+
+            }
+        });
+
+        checkExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (int i = 0; i < expGroup.size(); i++) {
+                    if (textOfGroup.getText() == expGroup.get(i).getName()) {
+                        expGroup.get(i).setExpCount(expGroup.get(i).getCount() + Double.parseDouble(currentExp));
+                    }
+                    break;
+                }
+                floatingWindow.setVisibility(view.GONE);
             }
         });
 
