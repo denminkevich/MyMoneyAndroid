@@ -174,7 +174,7 @@
                 android:textSize="25sp"
                 android:layout_marginTop="15dp"
                 android:text="@string/Incomes"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/lightBlue"
                 android:textAlignment="center"></TextView>
             <EditText
                 android:id="@+id/incInput"
@@ -192,6 +192,179 @@
                 android:fontFamily="@font/open_sans"
                 android:focusable="auto"
                 ></EditText>
+            <GridLayout
+                android:id="@+id/incKeyboard"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="70dp"
+                android:columnCount="4"
+                android:rowCount="4"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:alignmentMode="alignBounds"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/oneInc"
+                    android:background="@color/mainBlue"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/twoInc"
+                    android:background="@color/mainBlue"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/threeInc"
+                    android:background="@color/mainBlue"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/deleteInc"
+                    android:src="@drawable/ic_delete"
+                    android:background="@color/mainBlue"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatImageButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fourInc"
+                    android:background="@color/mainBlue"
+                    android:text="4"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fiveInc"
+                    android:background="@color/mainBlue"
+                    android:text="5"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sixInc"
+                    android:background="@color/mainBlue"
+                    android:text="6"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/checkInc"
+                    android:src="@drawable/ic_check"
+                    android:background="@color/purple_200"
+                    android:layout_height="180dp"
+                    android:layout_width="75dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp"
+                    android:layout_rowSpan="3"></androidx.appcompat.widget.AppCompatImageButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sevenInc"
+                    android:background="@color/mainBlue"
+                    android:text="7"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/eightInc"
+                    android:background="@color/mainBlue"
+                    android:text="8"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/nineInc"
+                    android:background="@color/mainBlue"
+                    android:text="9"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/currencyInc"
+                    android:background="@color/mainBlue"
+                    android:text="Br"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    android:focusable="false"
+                    android:enabled="true"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zeroInc"
+                    android:background="@color/mainBlue"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/pointInc"
+                    android:background="@color/mainBlue"
+                    android:text=","
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="24sp"
+                    android:layout_height="60dp"
+                    android:layout_width="75dp"
+                    app:strokeColor="@color/darkBlue"
+                    app:strokeWidth="5dp" ></androidx.appcompat.widget.AppCompatButton>
+            </GridLayout>
         </LinearLayout>
 
     </LinearLayout>

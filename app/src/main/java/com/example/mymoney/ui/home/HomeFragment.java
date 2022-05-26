@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.mymoney.GridAdapter;
 import com.example.mymoney.ExpensesGroup;
+import com.example.mymoney.IncomesGroup;
 import com.example.mymoney.MainActivity;
 import com.example.mymoney.R;
 import com.example.mymoney.ui.incomes.IncomesFragment;
@@ -37,6 +38,8 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private Context mContext;
     public String currentExp = "";
+    protected double allExp = 0;
+    protected double allInc = 0;
 
     @Override
     public void onAttach(Context context) {
@@ -63,6 +66,22 @@ public class HomeFragment extends Fragment {
         monthText.setText(month);
         yearText.setText(Integer.toString(year));
 
+        ArrayList<IncomesGroup> incGroup = ((MainActivity) getActivity()).getIncList();
+        ArrayList<ExpensesGroup> expGroup = ((MainActivity) getActivity()).getExpList();
+        TextView expenses = (TextView) root.findViewById(R.id.expenses);
+        TextView smallInc = (TextView) root.findViewById(R.id.smallIncomes);
+        allExp = 0;
+        for (int i = 0; i < expGroup.size(); i++) {
+            allExp += expGroup.get(i).getCount();
+        }
+        expenses.setText(Double.toString(allExp) + " р");
+        allInc = 0;
+        for (int i = 0; i < incGroup.size(); i++) {
+            allInc += incGroup.get(i).getCount();
+        }
+        smallInc.setText(Double.toString(allInc) + " р");
+
+
         ImageButton changeBtn = (ImageButton) root.findViewById(R.id.changeBtn);
         changeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +95,6 @@ public class HomeFragment extends Fragment {
 
         });
 
-        ArrayList<ExpensesGroup> expGroup = ((MainActivity) getActivity()).getExpList();
         if (expGroup.size() == 0) {
             expGroup.add(new ExpensesGroup("Здоровье", 0, R.drawable.ic_medicon));
             expGroup.add(new ExpensesGroup("Покупки", 0, R.drawable.ic_goods));

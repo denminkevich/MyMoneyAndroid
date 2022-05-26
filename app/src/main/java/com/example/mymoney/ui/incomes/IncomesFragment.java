@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -38,6 +39,9 @@ public class IncomesFragment extends Fragment {
 
     private IncomesViewModel mViewModel;
     private Context mContext;
+    protected String currentIncomes = "";
+    protected double allExp = 0;
+    protected double allInc = 0;
 
     @Override
     public void onAttach(Context context) {
@@ -65,6 +69,21 @@ public class IncomesFragment extends Fragment {
         monthText.setText(month);
         yearText.setText(Integer.toString(year));
 
+        ArrayList<IncomesGroup> incGroup = ((MainActivity) getActivity()).getIncList();
+        ArrayList<ExpensesGroup> expGroup = ((MainActivity) getActivity()).getExpList();
+        TextView incomes = (TextView) root.findViewById(R.id.incomes);
+        TextView smallExp = (TextView) root.findViewById(R.id.smallExpenses);
+        allInc = 0;
+        for (int i = 0; i < incGroup.size(); i++) {
+            allInc += incGroup.get(i).getCount();
+        }
+        incomes.setText(Double.toString(allInc) + " р");
+        allExp = 0;
+        for (int i = 0; i < expGroup.size(); i++) {
+            allExp += expGroup.get(i).getCount();
+        }
+        smallExp.setText(Double.toString(allExp) + " р");
+
         ImageButton changeBtn = (ImageButton) root.findViewById(R.id.changeBtnInc);
         changeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +98,6 @@ public class IncomesFragment extends Fragment {
             }
         });
 
-        ArrayList<IncomesGroup> incGroup = ((MainActivity) getActivity()).getIncList();
         if (incGroup.size() == 0) {
             incGroup.add(new IncomesGroup("Зарплата", 0, R.drawable.ic_salery));
             incGroup.add(new IncomesGroup("Фриланс", 0, R.drawable.ic_freelance));
@@ -106,6 +124,7 @@ public class IncomesFragment extends Fragment {
                 imageOfGroupInc.setImageResource(IncGroup.getImg());
                 textOfGroupInc.setText(IncGroup.getName());
                 myGrid.setVisibility(View.GONE);
+                currentIncomes = "";
             }
         });
 
@@ -114,8 +133,145 @@ public class IncomesFragment extends Fragment {
             public void onClick(View view) {
                 floatingWindowInc.setVisibility(View.GONE);
                 myGrid.setVisibility(View.VISIBLE);
+                currentIncomes = "";
             }
         });
+
+        Button oneInc = (Button) root.findViewById(R.id.oneInc);
+        Button twoInc = (Button) root.findViewById(R.id.twoInc);
+        Button threeInc = (Button) root.findViewById(R.id.threeInc);
+        Button fourInc = (Button) root.findViewById(R.id.fourInc);
+        Button fiveInc = (Button) root.findViewById(R.id.fiveInc);
+        Button sixInc = (Button) root.findViewById(R.id.sixInc);
+        Button sevenInc = (Button) root.findViewById(R.id.sevenInc);
+        Button eightInc = (Button) root.findViewById(R.id.eightInc);
+        Button nineInc = (Button) root.findViewById(R.id.nineInc);
+        Button zeroInc = (Button) root.findViewById(R.id.zeroInc);
+        Button pointInc = (Button) root.findViewById(R.id.pointInc);
+        ImageButton deleteInc = (ImageButton) root.findViewById(R.id.deleteInc);
+        ImageButton checkInc = (ImageButton) root.findViewById(R.id.checkInc);
+
+        oneInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "1";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        twoInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "2";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        threeInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "3";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        fourInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "4";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        fiveInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "5";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        sixInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "6";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        sevenInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "7";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        eightInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "8";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        nineInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "9";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        zeroInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIncomes += "1";
+                editTextInc.setText(currentIncomes);
+            }
+        });
+
+        pointInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentIncomes.contains(",")) {
+                    editTextInc.setText(currentIncomes);
+                } else {
+                    currentIncomes += ".";
+                    editTextInc.setText(currentIncomes);
+                }
+
+            }
+        });
+
+        deleteInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (currentIncomes.length() > 0) {
+                    currentIncomes = currentIncomes.replace(currentIncomes.substring(currentIncomes.length() - 1), "");
+                    editTextInc.setText(currentIncomes);
+                }
+
+            }
+        });
+
+        checkInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (int i = 0; i < incGroup.size(); i++) {
+                    if (textOfGroupInc.getText() == incGroup.get(i).getName()) {
+                        incGroup.get(i).setExpCount(incGroup.get(i).getCount() + Double.parseDouble(currentIncomes));
+                        break;
+                    }
+                }
+                IncomesFragment nextFrag = new IncomesFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
 
         return root;
     }
