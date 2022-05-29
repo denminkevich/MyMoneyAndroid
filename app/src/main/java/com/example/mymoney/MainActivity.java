@@ -21,16 +21,21 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<ExpensesGroup> expenseGroup = new ArrayList<>();
     ArrayList<IncomesGroup> incomesGroup = new ArrayList<>();
+    ArrayList<OperatesGroup> operGroup = new ArrayList<>();
     public ArrayList<ExpensesGroup> getExpList(){
         return expenseGroup;
     }
     public ArrayList<IncomesGroup> getIncList(){
         return incomesGroup;
+    }
+    public ArrayList<OperatesGroup> getOperList(){
+        return operGroup;
     }
 
     @Override
@@ -49,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
 
     }
 

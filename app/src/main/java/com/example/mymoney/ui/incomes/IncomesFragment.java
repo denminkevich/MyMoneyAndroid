@@ -1,9 +1,11 @@
 package com.example.mymoney.ui.incomes;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,10 +29,12 @@ import com.example.mymoney.GridAdapter;
 import com.example.mymoney.GridIncAdapter;
 import com.example.mymoney.IncomesGroup;
 import com.example.mymoney.MainActivity;
+import com.example.mymoney.OperatesGroup;
 import com.example.mymoney.R;
 import com.example.mymoney.ui.home.HomeFragment;
 import com.example.mymoney.ui.home.HomeViewModel;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -42,6 +46,7 @@ public class IncomesFragment extends Fragment {
     protected String currentIncomes = "";
     protected double allExp = 0;
     protected double allInc = 0;
+    public IncomesGroup curInc;
 
     @Override
     public void onAttach(Context context) {
@@ -52,6 +57,7 @@ public class IncomesFragment extends Fragment {
         return new IncomesFragment();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -69,6 +75,7 @@ public class IncomesFragment extends Fragment {
         monthText.setText(month);
         yearText.setText(Integer.toString(year));
 
+        ArrayList<OperatesGroup> operGroup = ((MainActivity) getActivity()).getOperList();
         ArrayList<IncomesGroup> incGroup = ((MainActivity) getActivity()).getIncList();
         ArrayList<ExpensesGroup> expGroup = ((MainActivity) getActivity()).getExpList();
         TextView incomes = (TextView) root.findViewById(R.id.incomes);
@@ -111,8 +118,8 @@ public class IncomesFragment extends Fragment {
         EditText editTextInc = (EditText) root.findViewById(R.id.incInput);
         LinearLayout floatingWindowInc = (LinearLayout) root.findViewById(R.id.floatWindowInc);
         View emptyViewInc = (View) root.findViewById(R.id.emptyViewInc);
-
         myGrid.setAdapter(new GridIncAdapter(mContext, incGroup));
+        LocalDate date = LocalDate.now();
 
         myGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -125,6 +132,7 @@ public class IncomesFragment extends Fragment {
                 textOfGroupInc.setText(IncGroup.getName());
                 myGrid.setVisibility(View.GONE);
                 currentIncomes = "";
+                curInc = IncGroup;
             }
         });
 
@@ -258,6 +266,9 @@ public class IncomesFragment extends Fragment {
         checkInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (currentIncomes.equals("")) {
+                    return;
+                }
                 for (int i = 0; i < incGroup.size(); i++) {
                     if (textOfGroupInc.getText() == incGroup.get(i).getName()) {
                         incGroup.get(i).setExpCount(incGroup.get(i).getCount() + Double.parseDouble(currentIncomes));
@@ -269,6 +280,7 @@ public class IncomesFragment extends Fragment {
                         .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
                         .addToBackStack(null)
                         .commit();
+                operGroup.add(new OperatesGroup(curInc.getName(), date, curInc.getImg(), Double.parseDouble(currentIncomes)));
             }
         });
 

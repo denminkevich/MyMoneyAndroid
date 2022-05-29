@@ -19,4 +19,5 @@
     <string name="Freelance">Фриланс</string>
     <string name="Sells">Продажи</string>
     <string name="Rents">Аренда</string>
+    <string name="LastOper">Последние операции</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.mymoney.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Path;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,11 +29,14 @@ import com.example.mymoney.GridAdapter;
 import com.example.mymoney.ExpensesGroup;
 import com.example.mymoney.IncomesGroup;
 import com.example.mymoney.MainActivity;
+import com.example.mymoney.OperatesGroup;
 import com.example.mymoney.R;
 import com.example.mymoney.ui.incomes.IncomesFragment;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
@@ -40,6 +44,7 @@ public class HomeFragment extends Fragment {
     public String currentExp = "";
     protected double allExp = 0;
     protected double allInc = 0;
+    public ExpensesGroup curExp;
 
     @Override
     public void onAttach(Context context) {
@@ -66,6 +71,7 @@ public class HomeFragment extends Fragment {
         monthText.setText(month);
         yearText.setText(Integer.toString(year));
 
+        ArrayList<OperatesGroup> operGroup = ((MainActivity) getActivity()).getOperList();
         ArrayList<IncomesGroup> incGroup = ((MainActivity) getActivity()).getIncList();
         ArrayList<ExpensesGroup> expGroup = ((MainActivity) getActivity()).getExpList();
         TextView expenses = (TextView) root.findViewById(R.id.expenses);
@@ -112,6 +118,7 @@ public class HomeFragment extends Fragment {
         LinearLayout floatingWindow = (LinearLayout) root.findViewById(R.id.floatWindow);
         View emptyView = (View) root.findViewById(R.id.emptyView);
         myGrid.setAdapter(new GridAdapter(mContext, expGroup));
+        LocalDate date = LocalDate.now();
 
         // When the user clicks on the GridItem
         myGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -125,6 +132,7 @@ public class HomeFragment extends Fragment {
                 textOfGroup.setText(ExpGroup.getName());
                 myGrid.setVisibility(View.GONE);
                 currentExp = "";
+                curExp = ExpGroup;
             }
         });
 
@@ -258,6 +266,9 @@ public class HomeFragment extends Fragment {
         checkExp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (currentExp.equals("")) {
+                    return;
+                }
                 for (int i = 0; i < expGroup.size(); i++) {
                     if (textOfGroup.getText() == expGroup.get(i).getName()) {
                         expGroup.get(i).setExpCount(expGroup.get(i).getCount() + Double.parseDouble(currentExp));
@@ -269,6 +280,7 @@ public class HomeFragment extends Fragment {
                         .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
                         .addToBackStack(null)
                         .commit();
+                operGroup.add(new OperatesGroup(curExp.getName(), date, curExp.getImg(), Double.parseDouble("-" + currentExp)));
             }
         });
 
