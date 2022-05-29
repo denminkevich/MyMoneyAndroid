@@ -37,6 +37,7 @@ import com.example.mymoney.ui.home.HomeViewModel;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 public class IncomesFragment extends Fragment {
@@ -234,7 +235,7 @@ public class IncomesFragment extends Fragment {
         zeroInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentIncomes += "1";
+                currentIncomes += "0";
                 editTextInc.setText(currentIncomes);
             }
         });
@@ -242,7 +243,7 @@ public class IncomesFragment extends Fragment {
         pointInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentIncomes.contains(",")) {
+                if (currentIncomes.contains(".")) {
                     editTextInc.setText(currentIncomes);
                 } else {
                     currentIncomes += ".";
@@ -256,8 +257,10 @@ public class IncomesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (currentIncomes.length() > 0) {
-                    currentIncomes = currentIncomes.replace(currentIncomes.substring(currentIncomes.length() - 1), "");
+                    currentIncomes = currentIncomes.substring(0, currentIncomes.length() - 1);
                     editTextInc.setText(currentIncomes);
+                } else {
+                    editTextInc.setText("");
                 }
 
             }
@@ -280,7 +283,9 @@ public class IncomesFragment extends Fragment {
                         .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
                         .addToBackStack(null)
                         .commit();
+                Collections.reverse(operGroup);
                 operGroup.add(new OperatesGroup(curInc.getName(), date, curInc.getImg(), Double.parseDouble(currentIncomes)));
+                Collections.reverse(operGroup);
             }
         });
 

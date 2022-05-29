@@ -29,7 +29,6 @@ public class ListAdapter extends ArrayAdapter<OperatesGroup> {
 
     public ListAdapter(Context context, int resource, ArrayList<OperatesGroup> operates) {
         super(context, resource, operates);
-        Collections.reverse(operates);
         this.operList = operates;
         this.layout = resource;
         this.inflater = LayoutInflater.from(context);

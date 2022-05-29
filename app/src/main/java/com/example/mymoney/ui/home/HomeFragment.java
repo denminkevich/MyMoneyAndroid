@@ -36,6 +36,7 @@ import com.example.mymoney.ui.incomes.IncomesFragment;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 public class HomeFragment extends Fragment {
@@ -234,7 +235,7 @@ public class HomeFragment extends Fragment {
         zeroExp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentExp += "1";
+                currentExp += "0";
                 editText.setText(currentExp);
             }
         });
@@ -242,7 +243,7 @@ public class HomeFragment extends Fragment {
         pointExp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentExp.contains(",")) {
+                if (currentExp.contains(".")) {
                     editText.setText(currentExp);
                 } else {
                     currentExp += ".";
@@ -256,8 +257,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (currentExp.length() > 0) {
-                    currentExp = currentExp.replace(currentExp.substring(currentExp.length() - 1), "");
+                    currentExp = currentExp.substring(0, currentExp.length() - 1);
                     editText.setText(currentExp);
+                } else {
+                    editText.setText("");
                 }
 
             }
@@ -280,7 +283,9 @@ public class HomeFragment extends Fragment {
                         .replace(R.id.nav_host_fragment, nextFrag, "findThisFragment")
                         .addToBackStack(null)
                         .commit();
+                Collections.reverse(operGroup);
                 operGroup.add(new OperatesGroup(curExp.getName(), date, curExp.getImg(), Double.parseDouble("-" + currentExp)));
+                Collections.reverse(operGroup);
             }
         });
 
