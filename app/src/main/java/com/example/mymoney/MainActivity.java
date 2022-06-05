@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ExpensesGroup> expenseGroup = new ArrayList<>();
     ArrayList<IncomesGroup> incomesGroup = new ArrayList<>();
     ArrayList<OperatesGroup> operGroup = new ArrayList<>();
+    ArrayList<monthClass> monthGroup = new ArrayList<>();
     public ArrayList<ExpensesGroup> getExpList(){
         return expenseGroup;
     }
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<OperatesGroup> getOperList(){
         return operGroup;
     }
+    public ArrayList<monthClass> getMonthGroup() {return monthGroup; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
     }
-
-//    }
 
 }
 

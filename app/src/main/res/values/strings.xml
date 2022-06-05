@@ -20,4 +20,6 @@
     <string name="Sells">Продажи</string>
     <string name="Rents">Аренда</string>
     <string name="LastOper">Последние операции</string>
+    <string name="currentMonth">Текущий месяц</string>
+    <string name="MonthExp">Расходы месяца</string>
 </resources>
